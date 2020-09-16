@@ -1,0 +1,24 @@
+.Card {
+    border: 2px solid rgb(2, 82, 58);
+    box-shadow: 0 3px 5px rgba(118, 245, 128, 0.952);
+    text-align: left;
+}
+.bold {
+    font-weight: bold;
+}
+.textMarg {
+    margin: 20px
+}
+.topRight {
+    position: relative; 
+    right: -80px;
+    top: 0px;
+}
+.blue {
+    color : blue;
+}
+.item {
+    flex-basis: 100;
+    min-height: 100px;
+    margin-bottom: 20px;    
+}

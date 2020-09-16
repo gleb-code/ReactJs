@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 
-import Card from './Card/Card';
-import Header from './Header/Header';
+import Card from './components/Card';
+import Header from './components/Header';
 
 
 class App extends Component {
