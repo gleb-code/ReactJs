@@ -1,18 +1,18 @@
 .Card {
     border: 2px solid rgb(2, 82, 58);
-    box-shadow: 0 3px 5px rgba(118, 245, 128, 0.952);
+    box-shadow: 0 3px 5px rgba(7, 207, 23, 0.952);
     text-align: left;
 }
 .bold {
     font-weight: bold;
 }
 .textMarg {
-    margin: 20px
+    margin: 10px
 }
 .topRight {
-    position: relative; 
-    right: -80px;
-    top: 0px;
+    position: absolute; 
+    right: 10px;
+    top: 10px;
 }
 .blue {
     color : blue;

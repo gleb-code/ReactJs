@@ -16,8 +16,8 @@ class Card extends Component {
                 <div className="textMarg">
                     <div className={this.state.isChecked ? "blue": null}>
                         <label className="bold">Caption</label>
-                        <input type="checkbox" className="topRight" onClick={this.changeStyles}/>
-                        <hr />
+                            <input type="checkbox" className="topRight" onClick={this.changeStyles}/>
+                                <hr />
                         <p>Some text </p>
                         <div class="item"></div>
                     </div>
