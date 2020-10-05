@@ -11,15 +11,16 @@ class Card extends Component {
             Text: 'Some text ...',
         },
         tempCardData: {
-            Logo: 'Caption',
-            Text: 'Some text ...'
+            Logo: '',
+            Text: ''
         }
+        
     }
     changeStyles = () => {
         this.setState({isChecked :!this.state.isChecked});
     }
     changeEditStatus = () =>{
-        this.setState({isEdit : !this.state.isEdit, isChecked: false});
+        this.setState({isEdit : !this.state.isEdit, isChecked: false,tempCardData:this.state.cardData});
     }
     handleChangeInfo = (event,name) =>{
         this.setState({ 
