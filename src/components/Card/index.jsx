@@ -11,8 +11,7 @@ class Card extends Component {
             Text: 'Some text ...',
         },
         tempCardData: {
-            Logo: '',
-            Text: ''
+            
         }
         
     }
