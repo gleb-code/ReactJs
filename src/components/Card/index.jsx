@@ -7,14 +7,16 @@ class Card extends Component {
         isChecked: false,
         isEdit: false,
         cardData : {
-            Logo: 'Caption',
-            Text: 'Some text ...',
+            Logo: this.props.head,
+            Text: this.props.body,
         },
         tempCardData: {
             
         }
         
     }
+    
+    
     changeStyles = () => {
         this.setState({isChecked :!this.state.isChecked});
     }
@@ -33,7 +35,9 @@ class Card extends Component {
         this.setState({cardData: {...this.state.tempCardData}, isChecked: false});
         this.changeEditStatus();
     }
+    
     render() {
+    
         return (
             <div className="Card">
                 <div className="textMarg">
@@ -68,7 +72,7 @@ class Card extends Component {
                                         <p className="bold">{this.state.cardData.Logo}</p>
                                         <div className="topRight">
                                             <div className="block">
-                                                <BsPencil className="blue" onClick={this.changeEditStatus} />
+                                            {!this.props.viewMode && <BsPencil className="blue" onClick={this.changeEditStatus} />}
                                                 <input type="checkbox" checked={this.state.isChecked} onChange={this.changeStyles} />  
                                             </div>
                                         </div>

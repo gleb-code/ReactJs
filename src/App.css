@@ -3,3 +3,11 @@
     width: 25%;
     min-width: 100 px;
 }
+.view-mode {
+    margin: 10px 0px 0px 20px;
+  }
+  
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
