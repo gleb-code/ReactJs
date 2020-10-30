@@ -1,5 +1,6 @@
 .Card {
     border: 2px solid rgb(2, 82, 58);
+    
     box-shadow: 0 3px 5px rgba(7, 207, 23, 0.952);
     text-align: left;
 }
@@ -39,4 +40,4 @@ p {
 input {
     cursor: pointer;
     max-width: 95%;
-    }
+    }  
