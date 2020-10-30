@@ -15,12 +15,7 @@ class Card extends Component {
         }
         
     }
-    static getDerivedStateFromProps(nextProps, prevState){
-        if (nextProps.viewMode === true) {
-        return {isEdit: false}
-        }
-        return prevState
-        }
+    static getDerivedStateFromProps = (nextProps, prevState) => nextProps.viewMode ? {isEdit: false} : prevState;
     
     changeStyles = () => {
         this.setState({isChecked :!this.state.isChecked});
