@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-
+import styled from "styled-components";
 import Card from './components/Card';
 import Header from './components/Header';
 
-
+const StyledCheckbox = styled.input`
+  cursor: pointer;
+  margin-left: 10px;
+`;
 class App extends Component {
   state = {
     cards: [
@@ -29,7 +32,7 @@ class App extends Component {
         <Header />
         <div className="view-mode">
           <p>Только просмотр</p>
-          <input type="checkbox" onChange={this.onlyViewModeToggle} />
+          < StyledCheckbox type="checkbox" onChange={this.onlyViewModeToggle} />
         </div>
         <div className="card-list">
           {this.state.cards.map((card) => {
