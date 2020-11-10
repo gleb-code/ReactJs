@@ -1,40 +1,37 @@
-.Card {
-    border: 5px solid rgb(211, 218, 216);
+.card {
     
-    box-shadow: 0px 1px 5px rgba(7, 207, 23, 0.952);
-
-    text-align: left;
-}
-.bold {
-    font-weight: bold;
-}
-.textMarg {
-    margin: 10px 45px 10px 10px;
-}
-.topRight {
-    position: absolute; 
-    right: 10px;
-    top: 10px;
-}
-.blue {
-    color : blue;
-}
-.green {
-    color: green!important;
-    cursor: pointer;
-    }
-.red {
-    color: red;
-    cursor: pointer;
-    }
-.block {
+    min-width: 400px;
+  }
+  
+  .card {
+    border: 5px solid rgb(4, 226, 163);
     position: relative;
-    word-break: break-all;
-    }
-.solidBorder {
-    display: flexbox;
-    word-break: break-all;
-    }
-p {
+    top: 1em;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    
+    
+    
+    
+    
+  }
+  
+  .card-checked {
+    border: 5px solid rgb(179, 32, 32);
+    margin-left: 30px;
+    margin-bottom: 10px;
+    margin-top: 16px;
+    display: inherit;
+    min-width: 400px;
+    
+  }
+  
+  input {
+    outline: 0;
+  }
+  
+  p {
     margin: 0;
-    }
+    padding: 0;
+  }
+  
