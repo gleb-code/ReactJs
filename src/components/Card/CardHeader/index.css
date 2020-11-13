@@ -1,0 +1,29 @@
+.card-header {
+    margin-top: 25px;
+    text-align: left;
+    height: 40px;
+  }
+  
+  .header-text {
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .updated-header {
+    width: 70px;
+  }
+  
+  .right {
+    float: right;
+    color: blue;
+  }
+  .red {
+      color: red;
+      position: absolute;
+      right: 25px;
+  }
+  .green {
+      color: green;
+      position: absolute;
+      right: 10px;
+  }
