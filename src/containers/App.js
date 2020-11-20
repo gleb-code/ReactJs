@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import './App.css';
+import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
-import CardList from "./components/CardList";
-import Header from './components/Header'
+import CardList from "../components/CardList";
+import Header from '../components/Header';
+import NewCard from "./NewCard";
+import Modal from "../components/UI/Modal";
+import BtnSuccess from "../components/UI/Buttons/BtnSuccess";
+import BtnDanger from "../components/UI/Buttons/BtnDanger";
+import './App.css';
 
 const StyledCheckbox = styled.input`
   cursor: pointer;
@@ -69,6 +74,7 @@ class App extends Component {
       },
     ],
     isOnlyViewMode: false,
+    showAddingCard: false,
   };
 
   onlyViewModeToggle = () => {
@@ -133,8 +139,36 @@ class App extends Component {
     updatedCards[cardIndex] = updatedCard;
     this.setState({ cards: updatedCards });
   };
+  addCardHandler = (newCard) => {
+    const card = { ...newCard };
+    card.id = uuidv4();
+    this.setState({ cards: [...this.state.cards, card] });
+  };
+
+  showAddingCardHandler = () => {
+    this.setState({ showAddingCard: true });
+  };
+
+  closeAddingCardHandler = () => {
+    this.setState({ showAddingCard: false });
+  };
+
 
   render() {
+    let newCard = (
+      <Modal
+        show={this.state.showAddingCard}
+        onClose={this.closeAddingCardHandler}
+      >
+        <NewCard
+          onAdd={this.addCardHandler}
+          onClose={this.closeAddingCardHandler}
+        />
+      </Modal>
+    );
+    if (this.state.isOnlyViewMode) {
+      newCard = null;
+    }
     return (
       <div>
         <Header />
@@ -146,14 +180,24 @@ class App extends Component {
               onChange={this.onlyViewModeToggle}
             />
           </div>
-          <button
-            onClick={this.deleteCardsHandler}
-            disabled={this.state.isOnlyViewMode}
-            className="delete"
-          >
-            Удалить выбранные карточки
-          </button>
+          <div className="container_buttons">
+            <BtnSuccess
+              size={{ height: "40px" }}
+              onSuccess={this.showAddingCardHandler}
+              isDisabled={this.state.isOnlyViewMode}
+            >
+              Добавить карточку
+            </BtnSuccess>
+            <BtnDanger
+              size={{ height: "40px" }}
+              onDanger={this.deleteCardsHandler}
+              isDisabled={this.state.isOnlyViewMode}
+            >
+              Удалить выбранные карточки
+            </BtnDanger>
+          </div>
         </div>
+        {newCard}
         <CardList
           cards={this.state.cards}
           isOnlyView={this.state.isOnlyViewMode}
