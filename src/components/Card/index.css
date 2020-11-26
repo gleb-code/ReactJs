@@ -1,37 +1,27 @@
 .card {
-    
-    min-width: 400px;
-  }
-  
-  .card {
     border: 5px solid rgb(4, 226, 163);
     position: relative;
     top: 1em;
     margin-left: 30px;
     margin-bottom: 30px;
-    
-    
-    
-    
-    
-  }
+    min-width: 400px;
+}
   
-  .card-checked {
+.card-checked {
     border: 5px solid rgb(179, 32, 32);
     margin-left: 30px;
     margin-bottom: 10px;
     margin-top: 16px;
     display: inherit;
     min-width: 400px;
-    
-  }
+}
   
-  input {
+input {
     outline: 0;
-  }
+}
   
-  p {
+p {
     margin: 0;
     padding: 0;
-  }
+}
   

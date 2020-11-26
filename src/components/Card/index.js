@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './index.css';
 import CardHeader from './CardHeader';
 import CardBody from "./CardBody";
+import withLoadingDelay from "../../hoc/withLoadingDelay";
+import Auxiliary from "../../hoc/Auxiliary";
 
 const Card = (props) => {
     const [cardTempState, setCardTempState] = useState({
@@ -22,7 +24,7 @@ const Card = (props) => {
     
     
         return (
-          <div className="Card">
+          <Auxiliary>
             <div className={props.card.isChecked ? "card-checked" : "card"}>
               <CardHeader
                 editMode={props.editMode}
@@ -44,8 +46,8 @@ const Card = (props) => {
                 onChange={(event) => inputChangedHandler(event, "body")}
         />
       </div>
-    </div>
+      </Auxiliary>
   );
 };
 
-export default Card;
+export default withLoadingDelay(Card);
