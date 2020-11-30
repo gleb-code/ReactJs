@@ -8,9 +8,9 @@ const withLoadingDelay = (WrappedComponent, className) => {
     useEffect(() => {
       const timer = setTimeout(() => {
         t.current.className = className;
-      }, 2000);
+      }, 5000);
       return () => clearTimeout(timer);
-    }, [t.current]);
+    }, []);
 
     return (
       <div className="Loader" ref={t}>

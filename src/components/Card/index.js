@@ -12,7 +12,7 @@ const Card = (props) => {
   
     useEffect(() => {
       setCardTempState({ tempCards: props.card });
-    }, [props.editMode]);
+    }, [props.editMode]);// eslint-disable-line react-hooks/exhaustive-deps
     
     
     const inputChangedHandler = (event, property) => {
@@ -50,4 +50,4 @@ const Card = (props) => {
   );
 };
 
-export default withLoadingDelay(Card);
+export default withLoadingDelay(Card, "card-size");

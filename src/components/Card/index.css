@@ -5,6 +5,7 @@
     margin-left: 30px;
     margin-bottom: 30px;
     min-width: 400px;
+    min-height: 140px;
 }
   
 .card-checked {
@@ -12,8 +13,9 @@
     margin-left: 30px;
     margin-bottom: 10px;
     margin-top: 16px;
-    display: inherit;
     min-width: 400px;
+    min-height: 140px;
+    position: relative;
 }
   
 input {

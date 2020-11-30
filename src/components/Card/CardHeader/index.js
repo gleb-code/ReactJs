@@ -5,7 +5,7 @@ import "./index.css";
 const CardHeader = (props) => {
   useEffect(() => {
     props.onCancel();
-  }, [props.view]);
+  }, [props.view]);// eslint-disable-line react-hooks/exhaustive-deps
 
   let pencil = null;
   if (!props.view) {
