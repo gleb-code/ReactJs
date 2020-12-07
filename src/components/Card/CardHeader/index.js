@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { BsPencil, BsCheck, BsX } from "react-icons/bs";
+import PropTypes from "prop-types";
+import { CardContext } from "../../../context/CardContext";
 import "./index.css";
 
 const CardHeader = (props) => {
+  const { CardCheckedHandler, editModeEnabled } = useContext(CardContext);
+
   useEffect(() => {
     props.onCancel();
   }, [props.view]);// eslint-disable-line react-hooks/exhaustive-deps
 
   let pencil = null;
   if (!props.view) {
-    pencil = <BsPencil className="right" onClick={props.onEdit} />;
+    pencil = (
+      <BsPencil className="right" onClick={() => editModeEnabled(props.id)} />
+    );
   }
 
   return (
@@ -21,7 +27,7 @@ const CardHeader = (props) => {
             className="right"
             id="check"
             type="checkbox"
-            onChange={props.onCheck}
+            onChange={() => CardCheckedHandler(props.id)}
             checked={props.checked}
           />
           {pencil}
@@ -34,12 +40,24 @@ const CardHeader = (props) => {
             value={props.tempHead}
             onChange={props.onChange}
           />
-          <BsX className="red" onClick={props.onCancel} />
-          <BsCheck className="green" onClick={props.onSave} />
+          <BsX className="right" onClick={props.onCancel} />
+          <BsCheck className="right" onClick={props.onSave} />
         </div>
       )}
     </div>
   );
+};
+
+CardHeader.propTypes = {
+  view: PropTypes.bool,
+  cardHead: PropTypes.string,
+  editMode: PropTypes.bool,
+  id: PropTypes.string,
+  checked: PropTypes.bool,
+  tempHead: PropTypes.string,
+  onChange: PropTypes.func,
+  onCancel: PropTypes.func,
+  onSave: PropTypes.func,
 };
 
 export default CardHeader;
