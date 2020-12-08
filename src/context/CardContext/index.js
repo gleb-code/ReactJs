@@ -55,12 +55,21 @@ const CardContextProvider = (props) => {
       isEditMode: false,
     },
     {
+<<<<<<< HEAD
       id: "8",
       head: "Card 8",
       body: "Some text on card 8",
       isChecked: false,
       isEditMode: false,
     },
+=======
+        id: "8",
+        head: "Card 8",
+        body: "Some text on card 8",
+        isChecked: false,
+        isEditMode: false,
+      },
+>>>>>>> train9
   ]);
 
   const showNumberOfCards = () => {

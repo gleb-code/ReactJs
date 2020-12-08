@@ -20,4 +20,11 @@ cardBody.propTypes = {
   onChange: PropTypes.func,
 };
 
+cardBody.propTypes = {
+  editMode: PropTypes.bool,
+  cardBody: PropTypes.string,
+  tempBody: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
 export default cardBody;

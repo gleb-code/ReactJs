@@ -5,7 +5,11 @@ import { CardContext } from "../../../context/CardContext";
 import "./index.css";
 
 const CardHeader = (props) => {
+<<<<<<< HEAD
   const { CardCheckedHandler, editModeEnabled } = useContext(CardContext);
+=======
+  const { cardCheckedHandler, editModeEnabled } = useContext(CardContext);
+>>>>>>> train9
 
   useEffect(() => {
     props.onCancel();
@@ -27,7 +31,11 @@ const CardHeader = (props) => {
             className="right"
             id="check"
             type="checkbox"
+<<<<<<< HEAD
             onChange={() => CardCheckedHandler(props.id)}
+=======
+            onChange={() => cardCheckedHandler(props.id)}
+>>>>>>> train9
             checked={props.checked}
           />
           {pencil}

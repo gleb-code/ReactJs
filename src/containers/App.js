@@ -10,7 +10,6 @@ import Header from "../components/Header";
 
 const StyledCheckbox = styled.input`
   cursor: pointer;
-  margin-left: 10px;
 `;
 
 class App extends Component {
