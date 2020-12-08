@@ -1,15 +1,17 @@
-import React, {Component} from 'react';
-import './index.css';
+import React, { useContext } from "react";
+import { CardContext } from "../../context/CardContext";
+import './index.css'
 
-class Header extends Component {
-    
-    render () {
-        return (
-            <div className="Header">
-                <h1>Header</h1>
-            </div>
-        );
-    }
-}
+const Header = () => {
+  const { showNumberOfCards } = useContext(CardContext);
+  return (
+    <div className = "Header">
+      <h3>
+        Количество карточек:{" "}
+        <span className="badge badge-secondary">{showNumberOfCards()}</span>
+      </h3>
+    </div>
+  );
+};
 
 export default Header;
