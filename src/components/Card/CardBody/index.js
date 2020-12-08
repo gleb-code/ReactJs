@@ -13,12 +13,6 @@ const cardBody = (props) => {
     </div>
   );
 };
-cardBody.propTypes = {
-  editMode: PropTypes.bool,
-  cardBody: PropTypes.string,
-  tempBody: PropTypes.string,
-  onChange: PropTypes.func,
-};
 
 cardBody.propTypes = {
   editMode: PropTypes.bool,
