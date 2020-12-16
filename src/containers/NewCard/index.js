@@ -6,10 +6,9 @@ import "./index.css";
 
 const NewCard = (props) => {
   const [card, setCard] = useState({
-    id: "",
-    head: "",
-    body: "",
-    isChecked: false,
+    Number: "",
+    Name: "",
+    About: "",
     isEditMode: false,
   });
   const { addCardHandler } = useContext(CardContext);
@@ -28,7 +27,7 @@ const NewCard = (props) => {
         <input
           type="text"
           placeholder="Введите заголовок"
-          onChange={(event) => inputChangedHandler(event, "head")}
+          onChange={(event) => inputChangedHandler(event, "Name")}
         />
       </div>
       <div className="add-item">
@@ -36,7 +35,7 @@ const NewCard = (props) => {
         <input
           type="text"
           placeholder="Введите текст"
-          onChange={(event) => inputChangedHandler(event, "body")}
+          onChange={(event) => inputChangedHandler(event, "About")}
         />
       </div>
       <div className="buttons">
