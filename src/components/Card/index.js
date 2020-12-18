@@ -12,9 +12,7 @@ const Card = (props) => {
     tempCards: {},
   });
 
-  useEffect(() => {
-    console.log(props.card.isChecked);
-  }, []);
+  
 
   useEffect(() => {
     setCardTempState({ tempCards: props.card });
@@ -30,22 +28,22 @@ const Card = (props) => {
     <React.Fragment>
       <div className={props.card.isChecked ? "card-checked" : "card"}>
         <CardHeader
-          id={props.id}
+          id={props.card.id}
           editMode={props.editMode}
           checked={props.isChecked}
-          cardHead={props.card.Name}
-          tempHead={cardTempState.tempCards.Name}
+          cardHead={props.card.head}
+          tempHead={cardTempState.tempCards.head}
           view={props.isOnlyView}
-          onChange={(event) => inputChangedHandler(event, "Name")}
-          onSave={() => saveChanges(props.id, cardTempState.tempCards)}
-          onCancel={() => cancelChanges(props.id)}
+          onChange={(event) => inputChangedHandler(event, "head")}
+          onSave={() => saveChanges(props.card.id, cardTempState.tempCards)}
+          onCancel={() => cancelChanges(props.card.id)}
         />
         <hr/>
         <CardBody
           editMode={props.editMode}
-          cardBody={props.card.About}
-          tempBody={cardTempState.tempCards.About}
-          onChange={(event) => inputChangedHandler(event, "About")}
+          cardBody={props.card.body}
+          tempBody={cardTempState.tempCards.body}
+          onChange={(event) => inputChangedHandler(event, "body")}
         />
       </div>
     </React.Fragment>

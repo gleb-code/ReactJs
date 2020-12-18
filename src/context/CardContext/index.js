@@ -13,11 +13,14 @@ const CardContextProvider = (props) => {
         "https://raw.githubusercontent.com/BrunnerLivio/PokemonDataGraber/master/output.json"
       )
       .then((res) => {
-        let cards = res.data.slice(0, 15);
-        cards = cards.map((card) => {
-          return { ...card, isChecked: false, isEditMode: false };
-        });
-        setCards(cards);
+        setCards(res.data.slice(0,15).map(card=>{
+          return { 
+            id: card.Number,
+            head: card.Name,
+            body: card.About, 
+            isChecked: false,
+            isEditMode: false };
+        }))
       })
       .catch((error) => console.log(error));
   }, []);
@@ -40,7 +43,7 @@ const CardContextProvider = (props) => {
   const cardCheckedHandler = (id) => {
     const updatedCards = [...cards];
     const cardIndex = updatedCards.findIndex((c) => {
-      return c.Number === id;
+      return c.id === id;
     });
     let updatedCard = updatedCards[cardIndex];
     updatedCard = {
@@ -54,7 +57,7 @@ const CardContextProvider = (props) => {
   const editModeEnabled = (id) => {
     const updatedCards = [...cards];
     const cardIndex = updatedCards.findIndex((c) => {
-      return c.Number === id;
+      return c.id === id;
     });
     let updatedCard = updatedCards[cardIndex];
     updatedCard = {
@@ -69,7 +72,7 @@ const CardContextProvider = (props) => {
   const saveChanges = (id, updatedTempCard) => {
     const updatedCards = [...cards];
     const cardIndex = updatedCards.findIndex((c) => {
-      return c.Number === id;
+      return c.id === id;
     });
     let updatedCard = updatedCards[cardIndex];
     updatedCard = {
@@ -83,7 +86,7 @@ const CardContextProvider = (props) => {
   const cancelChanges = (id) => {
     const updatedCards = [...cards];
     const cardIndex = updatedCards.findIndex((c) => {
-      return c.Number === id;
+      return c.id === id;
     });
     let updatedCard = updatedCards[cardIndex];
     updatedCard.isEditMode = false;
