@@ -9,7 +9,7 @@ const CardList = (props) => {
     return (
       <Card
         key={card.id}
-        card={card}
+        card={card}   
         editMode={card.isEditMode}
         isOnlyView={props.isOnlyView}
       />

@@ -4,8 +4,11 @@
     top: 1em;
     margin-left: 30px;
     margin-bottom: 30px;
-    min-width: 400px;
-    min-height: 140px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: auto;
 }
   
 .card-checked {
@@ -13,9 +16,13 @@
     margin-left: 30px;
     margin-bottom: 10px;
     margin-top: 16px;
-    min-width: 400px;
-    min-height: 140px;
     position: relative;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: auto;
+    
 }
   
 input {

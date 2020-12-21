@@ -12,6 +12,8 @@ const Card = (props) => {
     tempCards: {},
   });
 
+  
+
   useEffect(() => {
     setCardTempState({ tempCards: props.card });
   }, [props.editMode]);// eslint-disable-line react-hooks/exhaustive-deps

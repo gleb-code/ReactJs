@@ -1,67 +1,29 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 export const CardContext = createContext();
 
 const CardContextProvider = (props) => {
-  const [cards, setCards] = useState([
-    {
-      id: "1",
-      head: "Card 1",
-      body: "Some text on card 1",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-      id: "2",
-      head: "Card 2",
-      body: "Some text on card 2",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-      id: "3",
-      head: "Card 3",
-      body: "Some text on card 3",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-      id: "4",
-      head: "Card 4",
-      body: "Some text on card 4",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-      id: "5",
-      head: "Card 5",
-      body: "Some text on card 5",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-      id: "6",
-      head: "Card 6",
-      body: "Some text on card 6",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-      id: "7",
-      head: "Card 7",
-      body: "Some text on card 7",
-      isChecked: false,
-      isEditMode: false,
-    },
-    {
-        id: "8",
-        head: "Card 8",
-        body: "Some text on card 8",
-        isChecked: false,
-        isEditMode: false,
-      },
-  ]);
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://raw.githubusercontent.com/BrunnerLivio/PokemonDataGraber/master/output.json"
+      )
+      .then((res) => {
+        setCards(res.data.slice(0,15).map(card=>{
+          return { 
+            id: card.Number,
+            head: card.Name,
+            body: card.About, 
+            isChecked: false,
+            isEditMode: false };
+        }))
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const showNumberOfCards = () => {
     return cards.length;
@@ -74,7 +36,7 @@ const CardContextProvider = (props) => {
 
   const addCardHandler = (newCard) => {
     const card = { ...newCard };
-    card.id = uuidv4();
+    card.Number = uuidv4();
     setCards([...cards, card]);
   };
 

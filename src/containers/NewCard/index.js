@@ -9,7 +9,6 @@ const NewCard = (props) => {
     id: "",
     head: "",
     body: "",
-    isChecked: false,
     isEditMode: false,
   });
   const { addCardHandler } = useContext(CardContext);
