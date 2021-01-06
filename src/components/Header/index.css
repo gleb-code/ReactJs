@@ -1,7 +1,28 @@
-.Header {
-    width: 100%;
+.header {
+    height: 50px;
+    width: 99%;
     border: 2px solid rgb(27, 8, 197);
     box-shadow: 0 3px 5px rgba(9, 23, 211, 0.801);
-    text-align: right;
+    text-align: center;
     margin-bottom: 16px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
 }
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    position: absolute; 
+    right: 10px;
+  }
+  
+  .header li {
+    margin-right: 10px;
+    box-sizing: border-box;
+    display: block;
+  }
+  
