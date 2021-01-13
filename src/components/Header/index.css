@@ -25,4 +25,17 @@
     box-sizing: border-box;
     display: block;
   }
+  .header a {
+    color: rgb(236, 11, 11);
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .header a:hover,
+  .header a:active,
+  .header a.active {
+    color: #010308;
+  }
   
