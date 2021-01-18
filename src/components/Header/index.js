@@ -5,7 +5,6 @@ import "./index.css";
 const header = () => {
   return (
     <header className="header">
-      
       <nav>
         <ul>
           <li>
