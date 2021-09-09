@@ -1,25 +1,25 @@
-import React, { useContext } from "react";
+import React from "react";
 import BtnSuccess from "../../UI/Buttons/BtnSuccess";
 import BtnDanger from "../../UI/Buttons/BtnDanger";
-import { CardContext } from "../../../context/CardContext";
 import "./index.css";
+import { useSelector } from "react-redux";
 
 const HeaderButtons = (props) => {
-  const { deleteCardsHandler } = useContext(CardContext);
+  const viewMode = useSelector((state) => state.isOnlyViewMode);
 
   return (
     <div className="container_buttons">
       <BtnSuccess
         size={{ height: "40px" }}
         onSuccess={props.onShow}
-        isDisabled={props.isOnlyView}
+        isDisabled={viewMode}
       >
         Добавить карточку
       </BtnSuccess>
       <BtnDanger
         size={{ height: "40px" }}
-        onDanger={deleteCardsHandler}
-        isDisabled={props.isOnlyView}
+        onDanger={props.onDeleteCardsHandler}
+        isDisabled={viewMode}
       >
         Удалить выбранные карточки
       </BtnDanger>

@@ -1,17 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import BtnSuccess from "../../components/UI/Buttons/BtnSuccess";
 import BtnDanger from "../../components/UI/Buttons/BtnDanger";
-import { CardContext } from "../../context/CardContext";
 import "./index.css";
 
 const NewCard = (props) => {
   const [card, setCard] = useState({
-    id: "",
-    head: "",
-    body: "",
+    Number: "",
+    Name: "",
+    About: "",
+    isChecked: false,
     isEditMode: false,
   });
-  const { addCardHandler } = useContext(CardContext);
 
   const inputChangedHandler = (event, property) => {
     const newCard = { ...card };
@@ -27,7 +26,7 @@ const NewCard = (props) => {
         <input
           type="text"
           placeholder="Введите заголовок"
-          onChange={(event) => inputChangedHandler(event, "head")}
+          onChange={(event) => inputChangedHandler(event, "Name")}
         />
       </div>
       <div className="add-item">
@@ -35,13 +34,13 @@ const NewCard = (props) => {
         <input
           type="text"
           placeholder="Введите текст"
-          onChange={(event) => inputChangedHandler(event, "body")}
+          onChange={(event) => inputChangedHandler(event, "About")}
         />
       </div>
       <div className="buttons">
         <BtnSuccess
           size={{ height: "30px" }}
-          onSuccess={() => addCardHandler(card)}
+          onSuccess={() => props.onAddCardHandler(props.cards, card)}
         >
           Добавить
         </BtnSuccess>

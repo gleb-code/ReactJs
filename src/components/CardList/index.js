@@ -1,21 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
 import Card from "../Card";
-import { CardContext } from "../../context/CardContext";
 import "./index.css";
 
-const CardList = (props) => {
-  const { cards } = useContext(CardContext);
-  const card = cards.map((card) => {
+const cardList = (props) => {
+  const card = props.cards.map((card) => {
     return (
       <Card
-        key={card.id}
-        card={card}   
+        key={card.Number}
+        card={card}
+        id={card.Number}
         editMode={card.isEditMode}
-        isOnlyView={props.isOnlyView}
+        isPartOfList
       />
     );
   });
   return <div className="card-list">{card}</div>;
 };
 
-export default CardList;
+export default cardList;

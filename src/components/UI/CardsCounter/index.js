@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
-import { CardContext } from "../../../context/CardContext";
+import React from "react";
 
-function CardsCounter() {
-  const { showNumberOfCards } = useContext(CardContext);
-
+function cardsCounter(props) {
   return (
     <h3 style={{ textAlign: "center" }}>
       Количество карточек:{" "}
-      <span className="badge badge-secondary">{showNumberOfCards()}</span>
+      <span className="badge badge-secondary">{props.cards.length}</span>
     </h3>
   );
 }
 
-export default CardsCounter;
+export default cardsCounter;

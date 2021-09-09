@@ -1,20 +1,26 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { BsPencil, BsCheck, BsX } from "react-icons/bs";
 import PropTypes from "prop-types";
-import { CardContext } from "../../../context/CardContext";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../../../redux/actions/actions";
 import "./index.css";
 
 const CardHeader = (props) => {
-  const { cardCheckedHandler, editModeEnabled } = useContext(CardContext);
+  const dispatch = useDispatch();
+  const cards = useSelector((state) => state.cards);
+  const view = useSelector((state) => state.isOnlyViewMode);
 
   useEffect(() => {
     props.onCancel();
-  }, [props.view]);// eslint-disable-line react-hooks/exhaustive-deps
+  }, [view]); // eslint-disable-line react-hooks/exhaustive-deps
 
   let pencil = null;
-  if (!props.view) {
+  if (!view) {
     pencil = (
-      <BsPencil className="right" onClick={() => editModeEnabled(props.id)} />
+      <BsPencil
+        className="right"
+        onClick={() => dispatch(actions.editModeEnabled(cards, props.id))}
+      />
     );
   }
 
@@ -27,8 +33,10 @@ const CardHeader = (props) => {
             className="right"
             id="check"
             type="checkbox"
-            onChange={() => cardCheckedHandler(props.id)}
             checked={props.checked}
+            onClick={() =>
+              dispatch(actions.cardCheckedHandler(cards, props.id))
+            }
           />
           {pencil}
         </div>
@@ -40,8 +48,8 @@ const CardHeader = (props) => {
             value={props.tempHead}
             onChange={props.onChange}
           />
-          <BsX className="red" onClick={props.onCancel} />
-          <BsCheck className="green" onClick={props.onSave} />
+          <BsX className="right" onClick={props.onCancel} />
+          <BsCheck className="right" onClick={props.onSave} />
         </div>
       )}
     </div>
