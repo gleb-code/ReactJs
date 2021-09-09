@@ -8,9 +8,9 @@ const withLoadingDelay = (WrappedComponent, className) => {
     useEffect(() => {
       const timer = setTimeout(() => {
         t.current.className = className;
-      }, 5000);
+      }, 2000);
       return () => clearTimeout(timer);
-    }, []);
+    }, [t.current]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
       <div className="Loader" ref={t}>

@@ -1,5 +1,5 @@
 .App-header {
-  background-color: rgb(193, 236, 0);
+  background-color: #222;
   height: 50px;
   padding: 10px;
   color: white;
@@ -17,14 +17,3 @@
 .container {
   display: flex;
 }
-
-.view-mode {
-  margin: 10px 0px 0px 20px;
-}
-
-.container_buttons{
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: 10px;
-}
-

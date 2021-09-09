@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../Header";
 import { Switch, Route } from "react-router-dom";
-import SignIn from "../SignIn";
+import { useDispatch } from "react-redux";
+import SignIn from "../../containers/SignInData";
 import App from "../../containers/App";
-import CardContextProvider from "../../context/CardContext";
-import NotFound from '../NotFound';
+import CardId from "../CardId";
+import Settings from "../Settings";
+import * as actions from "../../redux/actions/actions";
+import { isAdmin } from "../../utility/isAdminCheck";
 
-const layout = () => {
+let id = null;
+
+const Layout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actions.initCards());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <CardContextProvider>
-      <div>
-        <Header />
+    <div>
+      <Header />
+      <Switch>
         <Switch>
-          <Route path="/" exact component={SignIn} />
-          <Route path="/cards" component={App} />
-          <Route path='*' exact={true} component={NotFound} />
+          <Route path="/" exact component={App} />
+          <Route path="/signin" component={SignIn} />
+          <Route path={"/card/:" + id} component={CardId} />
+          {isAdmin() ? <Route path="/settings" component={Settings} /> : null}
+          <Route
+            render={() => (
+              <h1 style={{ textAlign: "center" }}>Page not found</h1>
+            )}
+          />
         </Switch>
-      </div>
-    </CardContextProvider>
+      </Switch>
+    </div>
   );
 };
 
-export default layout;
+export default Layout;
